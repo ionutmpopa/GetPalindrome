@@ -2,6 +2,7 @@ package com.iopo;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -11,51 +12,38 @@ public class Main {
         Path thePath = Paths.get("resources/checkPalindromes.txt");
         Path palindromes = Paths.get("resources/palindromes.txt");
         Path notPalindromes = Paths.get("resources/NOTpalindromes.txt");
+        Palindrome palindrome = new Palindrome();
 
-        com.iopo.Palindrome palindrome = new com.iopo.Palindrome();
-        List<String> palindromeList = palindrome.readFromFile(thePath);
-        palindrome.writeToFile(palindromeList, palindromes, notPalindromes);
+        List<Integer> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
+        List<Integer> c = new ArrayList<>();
 
-//        if (myTrue() && !myFalse()) {
-//            System.out.println(myTrue());
-//            System.out.println(myFalse());
-//        }
-//
-//        if (myTrue() && myFalse()) {
-//            System.out.println(myTrue());
-//            System.out.println(myFalse());
-//        }
-//
-//        if (!myTrue() && !myFalse()) {
-//            System.out.println(myTrue());
-//            System.out.println(myFalse());
-//        }
-//
-//        if (!myTrue() && myFalse()) {
-//            System.out.println(myTrue());
-//            System.out.println(myFalse());
-//        }
-
-        //if (!myTrue() && myFalse()) {myTrue(); myFalse();}
-
-        //if (!myTrue() && !myFalse()) {myTrue(); myFalse();}
+//        a.add(1);
+//        a.add(1);
+        a.add(9);
+        a.add(1);
 
 
-    }
+//        b.add(1);
+//        b.add(1);
+        b.add(1);
+        b.add(9);
 
-    public static boolean myTrue() {
+        if (a.size() == b.size()) {
+            palindrome.sumUpElementsOfEqualLists(a, b, c);
+        } else if (a.size() < b.size()) {
+            palindrome.sumUpElementsOfUnequalLists(a, b, c);
+        } else {
+            palindrome.sumUpElementsOfUnequalLists(b, a, c);
+        }
 
-        String str = "Execute True RETURN";
-        //System.out.println(str);
-        return true;
+        for (Integer myInt : c) {
+            System.out.print(myInt);
+        }
 
-    }
 
-    public static boolean myFalse() {
-
-        String str = "Execute False RETURN";
-        //System.out.println(str);
-        return false;
-
+//        Palindrome palindrome = new Palindrome();
+//        List<String> palindromeList = palindrome.readFromFile(thePath);
+//        palindrome.writeToFile(palindromeList, palindromes, notPalindromes);
     }
 }
